@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from models.base_model import BaseModel
+from models.multi_model import MultiModel
 
 
 import pudb
@@ -39,7 +40,8 @@ if __name__ == "__main__":
     fname = Path.cwd() / 'data' / 'ffa_customrankings2019-2.csv'
     df = load_and_preprocess_data(fname)
 
-    mdl = BaseModel()
+    mdl = MultiModel()
+    # mdl = BaseModel()
     mdl.load(df)
     mdl.build_model()
     mdl.solve()
